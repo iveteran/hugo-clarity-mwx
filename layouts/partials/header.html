@@ -8,7 +8,7 @@
     {{- else }}
       {{- partialCached "logo" (dict "logo" $logo) }}
     {{- end }}
-    <div class='nav_body nav_body_{{ default "left" $params.mobileNavigation }}'>
+    <div class='nav_body nav_body_{{ default "right" $params.mobileNavigation }}'>
       {{ $context := . }}
       {{ $menuData := .Site.Data.menu }}
       {{ with $menuData }}
@@ -30,7 +30,10 @@
       {{- if $centerLogo }}
         {{- partial "logo" (dict "logo" $logo "class" "nav_center") }}
       {{- end }}
-      {{- partialCached "follow" . }}
+      <div class="nav_tail">
+        {{- partialCached "follow" . }}
+        {{- partialCached "mode" . }}
+      </div>
     </div>
   </nav>
 </header>

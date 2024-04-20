@@ -1,7 +1,7 @@
 {{ $translationsSize := len .Translations }}
 {{ with .Translations }}
 <div class="post_i18n">
-  <h3 class="mb-0">{{ T "translations" }}:</h3>
+  <h5 class="mb-0">{{ T "translations" }}:</h5>
   <nav class="tags_nav">
     {{ range $index, $_ := . }}
       <a href="{{ .Permalink }}" class="post_tag button button_translucent">{{ replace (printf "%#v" .Language.LanguageName) "\"" "" }}</a> 

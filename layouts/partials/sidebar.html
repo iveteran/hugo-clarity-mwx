@@ -27,6 +27,9 @@
       <div class="author_bio">
         {{ markdownify $introDescription }}
       </div>
+      <div class="mt-1">
+        {{- partialCached "contacts" . }}
+      </div>
       {{- if ( ne $s.introURL false ) }}
       {{- $r := T "read_more" }}
       <a href='{{ absLangURL (default "about/" $s.introURL) }}' class="button mt-1" role="button" title='{{ $r }}'>{{ $r }}</a>

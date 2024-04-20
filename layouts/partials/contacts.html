@@ -1,0 +1,16 @@
+{{- $contacts := .Site.Params.author.contacts }}
+<div class=''>
+  {{- range $contacts }}
+  {{ $url := .URL }}
+  {{- if eq $url nil }}
+    {{ $url = .url }}
+  {{- end }}
+  {{ $label := .Name }}
+  {{- if eq $label nil }}
+    {{ $label = .name }}
+  {{- end }}
+  <a href="{{ $url }}">
+    {{ partial "sprite" (dict "icon" $label) }}
+  </a>
+  {{- end }}
+</div>

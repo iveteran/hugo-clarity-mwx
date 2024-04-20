@@ -1,9 +1,12 @@
 {{- $t := site.Title -}}
 <a href='{{ absLangURL "" }}' class="nav_brand nav_item{{ with .class }} {{ . }}{{ end }}" title="{{ $t }}">
   {{- with .logo }}
-  <img src="{{ absURL . }}" class="logo" alt="{{ $t }}">
-  {{- else -}}
-    {{- $t -}}
+  <img src="{{ absURL . }}" class="nav_logo" alt="{{ $t }}">
+  {{- end }}
+  {{- with $t }}
+    <div class="nav_title nav_item">
+      {{- $t -}}
+    </div>
   {{- end }}
   {{- if ne (strings.HasSuffix .class "center") true }}
   <div class="nav_close">
